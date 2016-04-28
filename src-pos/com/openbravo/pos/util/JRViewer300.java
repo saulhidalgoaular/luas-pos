@@ -33,6 +33,11 @@
  *  Petr Michalek - pmichalek@users.sourceforge.net
  */
 
+/**
+ * Modified by Saul Hidalgo   *
+ * saulhidalgoaular@gmail.com *
+ */
+
 //    Portions:
 //    Openbravo POS is a point of sales application designed for touch screens.
 //    Copyright (C) 2007-2009 Openbravo, S.L.
@@ -109,6 +114,7 @@ import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.export.JRGraphics2DExporter;
 import net.sf.jasperreports.engine.export.JRGraphics2DExporterParameter;
 import net.sf.jasperreports.engine.print.JRPrinterAWT;
+import net.sf.jasperreports.engine.type.HyperlinkTypeEnum;
 import net.sf.jasperreports.engine.util.JRClassLoader;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.engine.util.JRProperties;
@@ -485,9 +491,9 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 	 */
 	public void gotoHyperlink(JRPrintHyperlink hyperlink)
 	{
-		switch(hyperlink.getHyperlinkType())
+		switch(hyperlink.getHyperlinkTypeValue())
 		{
-			case JRHyperlink.HYPERLINK_TYPE_REFERENCE :
+			case REFERENCE:
 			{
 				if (isOnlyHyperlinkListener())
 				{
@@ -496,8 +502,8 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 				}
 				break;
 			}
-			case JRHyperlink.HYPERLINK_TYPE_LOCAL_ANCHOR :
-			{
+			case LOCAL_ANCHOR:
+            {
 				if (hyperlink.getHyperlinkAnchor() != null)
 				{
 					Map anchorIndexes = jasperPrint.getAnchorIndexes();
@@ -541,7 +547,7 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 
 				break;
 			}
-			case JRHyperlink.HYPERLINK_TYPE_LOCAL_PAGE :
+			case LOCAL_PAGE:
 			{
 				int page = pageIndex + 1;
 				if (hyperlink.getHyperlinkPage() != null)
@@ -563,7 +569,7 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 
 				break;
 			}
-			case JRHyperlink.HYPERLINK_TYPE_REMOTE_ANCHOR :
+			case REMOTE_ANCHOR:
 			{
 				if (isOnlyHyperlinkListener())
 				{
@@ -573,7 +579,7 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 				}
 				break;
 			}
-			case JRHyperlink.HYPERLINK_TYPE_REMOTE_PAGE :
+			case REMOTE_PAGE:
 			{
 				if (isOnlyHyperlinkListener())
 				{
@@ -583,7 +589,7 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 				}
 				break;
 			}
-			case JRHyperlink.HYPERLINK_TYPE_CUSTOM:
+			case CUSTOM:
 			{
 				if (isOnlyHyperlinkListener())
 				{
@@ -592,7 +598,7 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 				}
 				break;
 			}
-			case JRHyperlink.HYPERLINK_TYPE_NONE :
+			case NONE:
 			default :
 			{
 				break;
@@ -1370,7 +1376,7 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 		}
 		else
 		{
-			jasperPrint = (JasperPrint)JRLoader.loadObject(fileName);
+			jasperPrint = (JasperPrint)JRLoader.loadObject(new File(fileName));
 		}
 
 		type = TYPE_FILE_NAME;
@@ -1572,7 +1578,7 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 					hyperlink = (JRPrintHyperlink) element;
 				}
 				boolean hasHyperlink = !hasImageMap 
-					&& hyperlink != null && hyperlink.getHyperlinkType() != JRHyperlink.HYPERLINK_TYPE_NONE;
+					&& hyperlink != null && hyperlink.getHyperlinkTypeValue() != HyperlinkTypeEnum.NONE;
 				boolean hasTooltip = hyperlink != null && hyperlink.getHyperlinkTooltip() != null;
 
 				if (hasHyperlink || hasImageMap || hasTooltip)
@@ -1677,7 +1683,7 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 		{
 			JRPrintImageAreaHyperlink imageArea = getImageMapArea(e);
 			if (imageArea != null
-					&& imageArea.getHyperlink().getHyperlinkType() != JRHyperlink.HYPERLINK_TYPE_NONE)
+					&& imageArea.getHyperlink().getHyperlinkTypeValue() != HyperlinkTypeEnum.NONE)
 			{
 				e.getComponent().setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			}
@@ -1755,14 +1761,14 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 	protected String getFallbackTooltip(JRPrintHyperlink hyperlink)
 	{
 		String toolTip = null;
-		switch(hyperlink.getHyperlinkType())
+		switch(hyperlink.getHyperlinkTypeValue())
 		{
-			case JRHyperlink.HYPERLINK_TYPE_REFERENCE :
+			case REFERENCE:
 			{
 				toolTip = hyperlink.getHyperlinkReference();
 				break;
 			}
-			case JRHyperlink.HYPERLINK_TYPE_LOCAL_ANCHOR :
+			case LOCAL_ANCHOR:
 			{
 				if (hyperlink.getHyperlinkAnchor() != null)
 				{
@@ -1770,7 +1776,7 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 				}
 				break;
 			}
-			case JRHyperlink.HYPERLINK_TYPE_LOCAL_PAGE :
+			case LOCAL_PAGE:
 			{
 				if (hyperlink.getHyperlinkPage() != null)
 				{
@@ -1778,7 +1784,7 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 				}
 				break;
 			}
-			case JRHyperlink.HYPERLINK_TYPE_REMOTE_ANCHOR :
+			case REMOTE_ANCHOR:
 			{
 				toolTip = "";
 				if (hyperlink.getHyperlinkReference() != null)
@@ -1791,7 +1797,7 @@ public class JRViewer300 extends javax.swing.JPanel implements JRHyperlinkListen
 				}
 				break;
 			}
-			case JRHyperlink.HYPERLINK_TYPE_REMOTE_PAGE :
+			case REMOTE_PAGE:
 			{
 				toolTip = "";
 				if (hyperlink.getHyperlinkReference() != null)

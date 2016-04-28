@@ -18,6 +18,7 @@
     <orderEntry type="library" name="lib2" level="project" />
     <orderEntry type="library" name="jsp-2.0" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.0.8-bin" level="project" />
+    <orderEntry type="library" name="jasperreports-6.2.1" level="project" />
   </component>
 </module>
 
