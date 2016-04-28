@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="annotations">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jetty/lib/annotations/geronimo-annotation_1.0_spec-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jetty/lib/annotations/jetty-annotations-6.1.12.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

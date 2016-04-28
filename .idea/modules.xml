@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/luaspos.iml" filepath="$PROJECT_DIR$/luaspos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/wadi/src/main/main.iml" filepath="$PROJECT_DIR$/jetty/contrib/wadi/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/jetty-openspaces/sessions/src/main/main1.iml" filepath="$PROJECT_DIR$/jetty/contrib/jetty-openspaces/sessions/src/main/main1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/j2se6/src/main/main10.iml" filepath="$PROJECT_DIR$/jetty/contrib/j2se6/src/main/main10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/jetty-openspaces/webapp/src/main/main11.iml" filepath="$PROJECT_DIR$/jetty/contrib/jetty-openspaces/webapp/src/main/main11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/cometd/bayeux/src/main/main12.iml" filepath="$PROJECT_DIR$/jetty/contrib/cometd/bayeux/src/main/main12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/grizzly/src/main/main2.iml" filepath="$PROJECT_DIR$/jetty/contrib/grizzly/src/main/main2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/maven-beanshell-plugin/src/main/main3.iml" filepath="$PROJECT_DIR$/jetty/contrib/maven-beanshell-plugin/src/main/main3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/jetty-openspaces/jos-maven-plugin/src/main/main4.iml" filepath="$PROJECT_DIR$/jetty/contrib/jetty-openspaces/jos-maven-plugin/src/main/main4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/jetty-ant/src/main/main5.iml" filepath="$PROJECT_DIR$/jetty/contrib/jetty-ant/src/main/main5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/terracotta/src/main/main6.iml" filepath="$PROJECT_DIR$/jetty/contrib/terracotta/src/main/main6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/cometd/client/src/main/main7.iml" filepath="$PROJECT_DIR$/jetty/contrib/cometd/client/src/main/main7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/cometd/demo/src/main/main8.iml" filepath="$PROJECT_DIR$/jetty/contrib/cometd/demo/src/main/main8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/jetty-rewrite-handler/src/main/main9.iml" filepath="$PROJECT_DIR$/jetty/contrib/jetty-rewrite-handler/src/main/main9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/jetty-openspaces/sessions/src/test/test.iml" filepath="$PROJECT_DIR$/jetty/contrib/jetty-openspaces/sessions/src/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/cometd/bayeux/src/test/test1.iml" filepath="$PROJECT_DIR$/jetty/contrib/cometd/bayeux/src/test/test1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/cometd/client/src/test/test2.iml" filepath="$PROJECT_DIR$/jetty/contrib/cometd/client/src/test/test2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/jetty-ant/src/test/test3.iml" filepath="$PROJECT_DIR$/jetty/contrib/jetty-ant/src/test/test3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/wadi/src/test/test4.iml" filepath="$PROJECT_DIR$/jetty/contrib/wadi/src/test/test4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/terracotta/src/test/test5.iml" filepath="$PROJECT_DIR$/jetty/contrib/terracotta/src/test/test5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/maven-beanshell-plugin/src/test/test6.iml" filepath="$PROJECT_DIR$/jetty/contrib/maven-beanshell-plugin/src/test/test6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jetty/contrib/jetty-rewrite-handler/src/test/test7.iml" filepath="$PROJECT_DIR$/jetty/contrib/jetty-rewrite-handler/src/test/test7.iml" />
+    </modules>
+  </component>
+</project>
+

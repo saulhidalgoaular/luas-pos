@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="win32">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jetty/lib/win32/jetty-win32-service-java-6.1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jetty/lib/win32/wrapper.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

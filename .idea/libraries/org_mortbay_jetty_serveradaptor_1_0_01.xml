@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="org.mortbay.jetty.serveradaptor_1.0.01">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jetty/contrib/eclipse-generic-wst-plugin/site/features/org.mortbay.jetty.serveradaptor_1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

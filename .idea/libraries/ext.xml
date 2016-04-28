@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="ext">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jetty/lib/ext/jetty-java5-threadpool-6.1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jetty/lib/ext/jetty-sslengine-6.1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jetty/lib/ext/jetty-rewrite-handler-6.1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jetty/lib/ext/jetty-setuid-6.1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jetty/lib/ext/jetty-html-6.1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jetty/lib/ext/jetty-client-6.1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jetty/lib/ext/jetty-servlet-tester-6.1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jetty/lib/ext/jetty-ajp-6.1.12.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

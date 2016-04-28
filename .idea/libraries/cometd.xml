@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="cometd">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jetty/lib/cometd/cometd-api-1.0.beta4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jetty/lib/cometd/cometd-jetty-6.1.12.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
