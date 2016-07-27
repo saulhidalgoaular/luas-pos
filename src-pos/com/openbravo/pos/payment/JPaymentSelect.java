@@ -379,6 +379,7 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
         m_jButtonPrint.setFocusable(false);
         m_jButtonPrint.setMargin(new java.awt.Insets(8, 16, 8, 16));
         m_jButtonPrint.setRequestFocusEnabled(false);
+        m_jButtonPrint.setVisible(false);
         jPanel2.add(m_jButtonPrint);
         jPanel2.add(jPanel1);
 
