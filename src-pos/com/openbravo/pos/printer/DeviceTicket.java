@@ -23,6 +23,7 @@ import com.openbravo.pos.forms.AppProperties;
 import com.openbravo.pos.printer.escpos.*;
 import com.openbravo.pos.printer.javapos.DeviceDisplayJavaPOS;
 import com.openbravo.pos.printer.javapos.DeviceFiscalPrinterJavaPOS;
+import com.openbravo.pos.printer.javapos.DeviceFiscalPrinterTFHKA;
 import com.openbravo.pos.printer.javapos.DevicePrinterJavaPOS;
 import com.openbravo.pos.printer.printer.DevicePrinterPrinter;
 import com.openbravo.pos.printer.screen.*;
@@ -70,6 +71,8 @@ public class DeviceTicket {
         try {
             if ("javapos".equals(sFiscalType)) {
                 m_deviceFiscal = new DeviceFiscalPrinterJavaPOS(sFiscalParam1);
+            } else if ("tfhka".equals(sFiscalType)){
+                m_deviceFiscal = new DeviceFiscalPrinterTFHKA("tfhka");
             } else {
                 m_deviceFiscal = new DeviceFiscalPrinterNull();
             }
