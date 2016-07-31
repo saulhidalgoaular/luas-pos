@@ -19,12 +19,13 @@
 
 package com.openbravo.pos.printer.javapos;
 
-import javax.swing.JComponent;
-import jpos.FiscalPrinter;
-import jpos.JposException;
 import com.openbravo.pos.printer.DeviceFiscalPrinter;
 import com.openbravo.pos.printer.TicketPrinterException;
 import com.openbravo.pos.util.RoundUtils;
+import jpos.FiscalPrinter;
+import jpos.JposException;
+
+import javax.swing.*;
 
 public class DeviceFiscalPrinterJavaPOS extends javax.swing.JPanel implements DeviceFiscalPrinter  {
     
@@ -97,7 +98,12 @@ public class DeviceFiscalPrinterJavaPOS extends javax.swing.JPanel implements De
         } catch (JposException e) {
         }          
     }
-    
+
+    @Override
+    public DeviceFiscalInformation getFiscalInformation() {
+        return new DeviceFiscalInformation();
+    }
+
     public void printZReport() {
         try {
             m_fiscal.printZReport();

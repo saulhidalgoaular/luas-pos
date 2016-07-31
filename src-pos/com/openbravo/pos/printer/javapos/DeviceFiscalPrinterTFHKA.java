@@ -1,6 +1,5 @@
 package com.openbravo.pos.printer.javapos;
 
-import com.openbravo.beans.LocaleResources;
 import com.openbravo.pos.forms.AppLocal;
 import com.openbravo.pos.printer.DeviceFiscalPrinter;
 import tfhka.PrinterException;
@@ -113,6 +112,16 @@ public class DeviceFiscalPrinterTFHKA extends javax.swing.JPanel implements Devi
             fiscalPrinter.printXReport();
         } catch (PrinterException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public DeviceFiscalInformation getFiscalInformation() {
+        try {
+            return new DeviceFiscalInformation(fiscalPrinter.getXReport(), fiscalPrinter.getS1PrinterData());
+        } catch (PrinterException e) {
+            //TODO: IMPROVE THIS.
+            return new DeviceFiscalInformation();
         }
     }
 }

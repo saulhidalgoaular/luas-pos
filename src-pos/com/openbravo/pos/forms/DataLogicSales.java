@@ -19,32 +19,24 @@
 
 package com.openbravo.pos.forms;
 
-import com.openbravo.pos.ticket.CategoryInfo;
-import com.openbravo.pos.ticket.ProductInfoExt;
-import com.openbravo.pos.ticket.TaxInfo;
-import com.openbravo.pos.ticket.TicketInfo;
-import com.openbravo.pos.ticket.TicketLineInfo;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
-import com.openbravo.data.loader.*;
-import com.openbravo.format.Formats;
 import com.openbravo.basic.BasicException;
+import com.openbravo.data.loader.*;
 import com.openbravo.data.model.Field;
 import com.openbravo.data.model.Row;
+import com.openbravo.format.Formats;
 import com.openbravo.pos.customers.CustomerInfoExt;
-import com.openbravo.pos.inventory.AttributeSetInfo;
-import com.openbravo.pos.inventory.TaxCustCategoryInfo;
-import com.openbravo.pos.inventory.LocationInfo;
-import com.openbravo.pos.inventory.MovementReason;
-import com.openbravo.pos.inventory.TaxCategoryInfo;
+import com.openbravo.pos.inventory.*;
 import com.openbravo.pos.mant.FloorsInfo;
 import com.openbravo.pos.payment.PaymentInfo;
 import com.openbravo.pos.payment.PaymentInfoTicket;
-import com.openbravo.pos.ticket.FindTicketsInfo;
-import com.openbravo.pos.ticket.TicketTaxInfo;
+import com.openbravo.pos.printer.javapos.DeviceFiscalInformation;
+import com.openbravo.pos.ticket.*;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 /**
  *
@@ -438,6 +430,33 @@ public class DataLogicSales extends BeanFactoryDataSingle {
                         }});
                     }
                 }
+
+                return null;
+            }
+        };
+        t.execute();
+    }
+
+    public final void saveFiscalData(final TicketInfo ticket, final DeviceFiscalInformation fiscalInformation) throws BasicException{
+        Transaction t = new Transaction(s) {
+            public Object transact() throws BasicException {
+                // update fiscal info
+                new PreparedSentence(s
+                        , "UPDATE TICKETS SET FISCALID = ? , FISCALPRINTERID = ? , ZREPORT = ? WHERE ID = ?"
+                        , SerializerWriteParams.INSTANCE
+                ).exec(new DataParams() { public void writeValues() throws BasicException {
+                    if ( ticket.getTicketType() == TicketInfo.RECEIPT_NORMAL ){
+                        setInt(1, fiscalInformation.getNumberOfLastInvoice());
+                    }else if ( ticket.getTicketType() == TicketInfo.RECEIPT_REFUND ){
+                        setInt(1, fiscalInformation.getNumberOfLastInvoice());
+                    }else if ( ticket.getTicketType() == TicketInfo.RECEIPT_PAYMENT ){
+                        setInt(1, fiscalInformation.getNumberOfLastDebitNote());
+                    }
+
+                    setString(2, fiscalInformation.getRegisteredMachineNumber());
+                    setInt(3, fiscalInformation.getNumberOfLastZReport());
+                    setString(4, ticket.getId());
+                }});
 
                 return null;
             }

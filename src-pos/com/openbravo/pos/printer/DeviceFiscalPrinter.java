@@ -19,7 +19,9 @@
 
 package com.openbravo.pos.printer;
 
-import javax.swing.JComponent;
+import com.openbravo.pos.printer.javapos.DeviceFiscalInformation;
+
+import javax.swing.*;
 
 public interface DeviceFiscalPrinter {
  
@@ -31,6 +33,7 @@ public interface DeviceFiscalPrinter {
     public void printLine(String sproduct, double dprice, double dunits, int taxinfo);
     public void printMessage(String smessage);
     public void printTotal(String sPayment, double dpaid);
+    public DeviceFiscalInformation getFiscalInformation();
     
     public void printZReport();
     public void printXReport();

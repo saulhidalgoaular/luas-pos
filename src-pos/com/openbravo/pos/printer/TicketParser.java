@@ -20,16 +20,21 @@
 package com.openbravo.pos.printer;
 
 import com.openbravo.data.loader.LocalRes;
-import java.io.*;
-import java.awt.image.BufferedImage;
-import java.applet.*;
-
-import org.xml.sax.*;
+import com.openbravo.pos.forms.DataLogicSystem;
+import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-import javax.xml.parsers.SAXParserFactory;
+
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
-import com.openbravo.pos.forms.DataLogicSystem;
+import javax.xml.parsers.SAXParserFactory;
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 
 public class TicketParser extends DefaultHandler {
     
@@ -71,6 +76,10 @@ public class TicketParser extends DefaultHandler {
     
     public void printTicket(String sIn) throws TicketPrinterException {
         printTicket(new StringReader(sIn));
+    }
+
+    public DeviceFiscalPrinter getDeviceFiscalPrinter(){
+        return m_printer.getFiscalPrinter();
     }
     
     public void printTicket(Reader in) throws TicketPrinterException  {
